@@ -15,14 +15,14 @@ class EditNoteViewBody extends StatelessWidget {
         ),
         Padding(
           padding: EdgeInsets.symmetric(horizontal: 24.0, vertical: 10),
-          child: Column(
+          child: const Column(
             children: [
-              CustomTextField(hint: 'title'),
+              CustomTextField(hint: 'Title'),
               SizedBox(
                 height: 15,
               ),
               CustomTextField(
-                hint: 'content',
+                hint: 'Content',
                 maxLines: 5,
               ),
             ],
