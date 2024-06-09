@@ -11,6 +11,7 @@ class NotesView extends StatelessWidget {
         floatingActionButton: FloatingActionButton(
           onPressed: () {
             showModalBottomSheet(
+              isScrollControlled: true,
               shape: RoundedRectangleBorder(
                   borderRadius: BorderRadius.circular(16)),
               backgroundColor: const Color.fromRGBO(48, 48, 48, 1),

@@ -1,3 +1,4 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -20,9 +21,10 @@ class _AddNoteBottomSheetState extends State<AddNoteBottomSheet> {
     return BlocProvider(
       create: (context) => AddNoteCubit(),
       child: Padding(
-        padding: const EdgeInsets.only(
+        padding: EdgeInsets.only(
           left: 16,
           right: 16,
+          bottom: MediaQuery.of(context).viewInsets.bottom
         ),
         child: BlocConsumer<AddNoteCubit, AddNoteState>(
           listener: (context, state) {
