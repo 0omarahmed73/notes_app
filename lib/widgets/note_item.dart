@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:notes_app/models/note_model.dart';
 import 'package:notes_app/views/edit_notes_view.dart';
+import 'package:date_format/date_format.dart';
 
 class NoteItem extends StatelessWidget {
   const NoteItem(
@@ -22,7 +23,7 @@ class NoteItem extends StatelessWidget {
           left: 16,
         ),
         decoration: BoxDecoration(
-          color: background,
+          color: Color(noteModel.color),
           borderRadius: BorderRadius.circular(16),
         ),
         child: Column(
@@ -58,7 +59,8 @@ class NoteItem extends StatelessWidget {
                 mainAxisAlignment: MainAxisAlignment.end,
                 children: [
                   Text(
-                    '0${DateTime.now().day}/0${DateTime.now().month}/${DateTime.now().year}',
+                    formatDate(DateTime.parse(noteModel.data),
+                        [dd, '-', mm, '-', yyyy, '  ', hh, ':', nn, ' ', am]),
                     style: TextStyle(
                       color: Colors.black.withOpacity(0.6),
                     ),
