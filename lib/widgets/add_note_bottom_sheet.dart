@@ -17,30 +17,30 @@ class _AddNoteBottomSheetState extends State<AddNoteBottomSheet> {
 
   @override
   Widget build(BuildContext context) {
-    return Padding(
-      padding: const EdgeInsets.only(
-        left: 16,
-        right: 16,
-      ),
-      child: SingleChildScrollView(
+    return ModalProgressHUD(
+      inAsyncCall: isLoading,
+      child: Padding(
+        padding: const EdgeInsets.only(
+          left: 16,
+          right: 16,
+        ),
         child: BlocConsumer<AddNoteCubit, AddNoteState>(
           listener: (context, state) {
             if (state is AddNoteLoading) {
               isLoading = true;
               setState(() {});
-            } else if (state is AddNoteSuccess) {
+            }
+            if (state is AddNoteSuccess) {
               isLoading = false;
               setState(() {});
               Navigator.pop(context);
-            } else if (state is AddNoteFailure) {
+            }
+            if (state is AddNoteFailure) {
               print('Failed ${state.error}');
             }
           },
           builder: (context, state) {
-            return ModalProgressHUD(
-              inAsyncCall: isLoading,
-              child: AddNoteForm(),
-            );
+            return SingleChildScrollView(child: AddNoteForm());
           },
         ),
       ),
