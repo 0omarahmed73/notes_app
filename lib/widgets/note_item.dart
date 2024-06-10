@@ -59,8 +59,7 @@ class NoteItem extends StatelessWidget {
                 mainAxisAlignment: MainAxisAlignment.end,
                 children: [
                   Text(
-                    formatDate(DateTime.parse(noteModel.data),
-                        [dd, '-', mm, '-', yyyy, '  ', hh, ':', nn, ' ', am]),
+                    noteModel.data,
                     style: TextStyle(
                       color: Colors.black.withOpacity(0.6),
                     ),
