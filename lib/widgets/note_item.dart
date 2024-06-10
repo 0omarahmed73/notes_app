@@ -4,6 +4,9 @@ import 'package:notes_app/cubits/notes_cubit/notes_cubit.dart';
 import 'package:notes_app/models/note_model.dart';
 import 'package:notes_app/views/edit_notes_view.dart';
 import 'package:date_format/date_format.dart';
+import 'package:notes_app/widgets/custom_button.dart';
+import 'package:notes_app/widgets/custom_dialog.dart';
+import 'package:popover/popover.dart';
 
 class NoteItem extends StatelessWidget {
   const NoteItem(
@@ -56,7 +59,12 @@ class NoteItem extends StatelessWidget {
                     color: Colors.black,
                   ),
                   onPressed: () {
-                    noteModel.delete();
+                    showDialog(
+                        context: context,
+                        builder: (context) => CustomDialog(
+                              noteModel: noteModel,
+                            ));
+                    // noteModel.delete();
                     BlocProvider.of<NotesCubit>(context).fetchAllNotes();
                   },
                 ),

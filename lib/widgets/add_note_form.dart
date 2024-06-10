@@ -17,7 +17,6 @@ class AddNoteForm extends StatefulWidget {
 }
 
 class _AddNoteFormState extends State<AddNoteForm> {
-  
   final GlobalKey<FormState> formKey = GlobalKey();
   AutovalidateMode autovalidateMode = AutovalidateMode.disabled;
   String? title, subTitle;
@@ -50,8 +49,7 @@ class _AddNoteFormState extends State<AddNoteForm> {
           const SizedBox(
             height: 20,
           ),
-          ColorsListView(
-          ),
+          ColorsListView(),
           const SizedBox(
             height: 50,
           ),
@@ -62,8 +60,7 @@ class _AddNoteFormState extends State<AddNoteForm> {
                 onTap: () {
                   if (formKey.currentState!.validate()) {
                     var currentDate = DateTime.now();
-                    var formatedDate =
-                        DateFormat('dd-mm-yyyy').format(currentDate);
+                    var formatedDate = DateFormat.yMMMMd().format(currentDate);
                     formKey.currentState!.save();
                     var noteModel = NoteModel(
                         title: title!,
