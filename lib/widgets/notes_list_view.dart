@@ -18,7 +18,6 @@ class _NotesListViewState extends State<NotesListView> {
   void initState() {
     super.initState();
     BlocProvider.of<NotesCubit>(context).fetchAllNotes();
-
   }
 
   @override
@@ -35,12 +34,21 @@ class _NotesListViewState extends State<NotesListView> {
             int num = random.nextInt(100) + 150;
             int num2 = random2.nextInt(100) + 150;
             int num3 = random3.nextInt(100) + 150;
-            return NoteItem(
-              background: Color.fromRGBO(num, num2, num3, 1),
-              noteModel: notes[index],
-            );
+            return notes.length > 0
+                ? NoteItem(
+                    background: Color.fromRGBO(num, num2, num3, 1),
+                    noteModel: notes[index],
+                  )
+                : Center(
+                    child: Text(
+                    'List is empty',
+                    style: TextStyle(
+                      fontSize: 25,
+                      fontWeight: FontWeight.bold,
+                    ),
+                  ));
           },
-          itemCount: notes.length,
+          itemCount: notes.length > 0 ? notes.length : 1,
         );
       },
     );
