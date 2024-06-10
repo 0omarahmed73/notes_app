@@ -17,13 +17,7 @@ class AddNoteForm extends StatefulWidget {
 }
 
 class _AddNoteFormState extends State<AddNoteForm> {
-  final List<Color> colorsList = [
-    Color.fromARGB(255, 17, 202, 54),
-    Colors.deepPurpleAccent,
-    Colors.teal.shade400,
-    Colors.red.shade400,
-    const Color.fromARGB(255, 146, 179, 196)
-  ];
+  
   final GlobalKey<FormState> formKey = GlobalKey();
   AutovalidateMode autovalidateMode = AutovalidateMode.disabled;
   String? title, subTitle;
@@ -57,7 +51,6 @@ class _AddNoteFormState extends State<AddNoteForm> {
             height: 20,
           ),
           ColorsListView(
-            colors: colorsList,
           ),
           const SizedBox(
             height: 50,
